@@ -15,9 +15,9 @@ import com.faradice.faraUtil.FaraFiles;
 import com.faradice.faraUtil.FaraUtil;
 import com.faradice.faranet.FaraHttp;
 
-public class FaraCmdServlet extends HttpServlet {
+public class FaraParticleServlet extends HttpServlet {
 
-	public FaraCmdServlet() {
+	public FaraParticleServlet() {
 	}
 
 	@Override
@@ -34,15 +34,20 @@ public class FaraCmdServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			System.out.println("Got Post from particle");
+//			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			response.setStatus(HttpServletResponse.SC_OK);
 			BufferedReader input = new BufferedReader(new InputStreamReader(request.getInputStream(), "UTF-8"));
 			String line = FaraHttp.readInputLine(input);
+			System.out.println(line);
 			response.setStatus(HttpServletResponse.SC_OK);
-			setValuesFromInput(line);
+//			setValuesFromInput(line);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		} finally {
 			response.getWriter().close();
+			System.out.println("Done and out");
 		}
 	}
 	
