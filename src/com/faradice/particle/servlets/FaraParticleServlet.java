@@ -33,7 +33,7 @@ public class FaraParticleServlet extends HttpServlet {
 			System.out.println("Got Post from particle");
 			response.setStatus(HttpServletResponse.SC_OK);
 			BufferedReader input = new BufferedReader(new InputStreamReader(request.getInputStream(), "UTF-8"));
-			String line = FaraHttp.readInputLine(input);
+			String line = FaraHttp.readHtmlInputLine(input);
 			System.out.println(line);
 			String res = "Cool stuff";
 			response.getOutputStream().write(res.getBytes());
