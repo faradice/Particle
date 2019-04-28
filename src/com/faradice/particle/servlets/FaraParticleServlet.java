@@ -19,12 +19,14 @@ public class FaraParticleServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			response.setContentType("text/html; charset=UTF-8");
+			response.getWriter().println("Farsýn Particle API");
+			response.setStatus(HttpServletResponse.SC_OK);
 			System.out.println("GET yes");
 		} catch (Exception ex) {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-		} finally {
-			response.getWriter().close();
-		}
+			ex.printStackTrace();
+		} 
 	}
 
 	@Override
