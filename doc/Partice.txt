@@ -1,0 +1,30 @@
+--------------------------
+user: system@farsyn.is
+Pass:  fAr.Sys14
+--------------------------
+Online IDE
+https://login.particle.io/login?redirect=https://build.particle.io/build
+https://build.particle.io/build/new
+
+
+--------------------------
+Til að nota Vodafone kort þá þarf að setja eftirfarandi efst í kóðann
+Fyrir fasta IP tölur:
+
+ // This is to set Vodafone APN
+#include "cellular_hal.h"
+STARTUP(cellular_credentials_set("static.gprs.is", "", "", NULL));
+
+Fyrir dynamic IP tölur:
+// This is to set Vodafone APN
+#include "cellular_hal.h"
+STARTUP(cellular_credentials_set("vmc.gprs.is", "", "", NULL));
+--------------------------
+Particle API
+https://docs.particle.io/reference/device-cloud/api/
+https://docs.particle.io/reference/SDKs/javascript/
+-------------------------
+Particle Web Hooks
+https://docs.particle.io/tutorials/device-cloud/webhooks/
+
+---------------------------------
